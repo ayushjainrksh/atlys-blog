@@ -5,12 +5,16 @@ import './styles/blog.scss';
 import { samplePosts } from '../../constants/sample';
 import { type TPost } from '../../global';
 import Post from '../views/Post';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = (): JSX.Element => {
   const [posts, setPosts] = useState<TPost[]>([]);
+  const navigate = useNavigate();
 
   const handlePost = (postContent: string, category: number): void => {
-    console.log(postContent, category);
+    // Check if not logged in and redirect to login page
+    navigate('/login ', { state: { previousLocation: '/blog' } });
+
     const newPost: TPost = {
       id: Math.floor(100 * Math.random()),
       content: postContent,
@@ -37,10 +41,8 @@ const Blog = (): JSX.Element => {
       <div className='blog__content'>
         <h1 className='blog__content__title'>Hello Jane</h1>
         <div className='blog__content__description'>How are you doing today? Would you like to share something with the community 🤗</div>
-        {/* <Link to="/login" state={{ previousLocation: location }}>Login</Link> */}
         <div className='blog__content__posts'>
           <CreatePost handlePost={handlePost} />
-
           {
             posts.map((post: TPost) => (
               <Post key={post.id} {...post} />
