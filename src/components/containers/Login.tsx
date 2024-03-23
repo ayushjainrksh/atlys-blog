@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Input from '../library/Input';
 import './styles/login.scss';
 import Button from '../library/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = (): JSX.Element => {
+  const navigate = useNavigate();
+
   const [formInput, setFormInput] = useState({
     email: '',
     password: ''
@@ -15,6 +17,17 @@ const Login = (): JSX.Element => {
       ...formInput,
       [e.target.name]: e.target.value
     });
+  };
+
+  const onSubmit = (event: React.MouseEvent): void => {
+    event.preventDefault();
+
+    // Make API call to login user
+    if (formInput.email === '' || formInput.password === '') {
+      return;
+    }
+
+    navigate('/blog');
   };
 
   return (
@@ -37,7 +50,13 @@ const Login = (): JSX.Element => {
           onChange={onChange}
           value={formInput?.password}/>
         <div className='login__action'>
-          <Button text='Login now' variant='primary' size='large' type='submit'/>
+          <Button
+            text='Login now'
+            variant='primary'
+            size='large'
+            type='submit'
+            onClick={onSubmit}
+          />
         </div>
         <div className='login__footer'>
           Not registered yet?
