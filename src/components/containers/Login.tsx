@@ -1,6 +1,8 @@
+import './styles/login.scss';
+
 const Login = (): JSX.Element => {
   return (
-    <div>Login</div>
+    <div className='login'>Login</div>
   );
 };
 

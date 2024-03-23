@@ -7,7 +7,7 @@ const Home = (): JSX.Element => {
 
   return (
     <div className='home'>
-      <img src={logo} alt="logo" />
+      <img className='home__logo' src={logo} alt="logo" />
       <Link to="/login" state={{ previousLocation: location }}>Login</Link>
     </div>
   );
