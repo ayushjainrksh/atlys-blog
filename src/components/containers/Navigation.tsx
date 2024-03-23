@@ -8,8 +8,6 @@ const Navigation = (): JSX.Element => {
   const location = useLocation();
   const previousLocation = location.state?.previousLocation;
 
-  console.log(location, previousLocation);
-
   return (
     <>
       <Routes location={previousLocation || location}>

@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import './App.css';
+import './app.scss';
 import Navigation from './components/containers/Navigation';
 
 function App (): JSX.Element {

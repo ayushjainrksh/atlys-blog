@@ -6,11 +6,13 @@
         font-size: var(--font-size-m);
         color: var(--text-color-4);
         margin-top: var(--spacing-xl);
+        text-align: center;
     }
 
     &__title {
         font-size: var(--font-size-xl);
         margin-bottom: 40px;
+        text-align: center;
     }
 
     &__form {
