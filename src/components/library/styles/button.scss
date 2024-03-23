@@ -1,5 +1,8 @@
 .button {
     width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
 
     &--primary {
         background-color: var(--primary-color);

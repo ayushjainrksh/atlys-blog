@@ -1,6 +1,6 @@
 import './styles/modal.scss';
 import close from '../../assets/images/close.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface IModalProps {
   children: JSX.Element
@@ -8,13 +8,15 @@ interface IModalProps {
 }
 
 const Modal = ({ children }: IModalProps): JSX.Element => {
-  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className='modal'>
       <div className='modal__content'>
         <div className='modal__content__close'>
-          <img src={close} onClick={() => { navigate(-1); }} />
+          <Link to={location.state?.previousLocation}>
+            <img src={close} />
+          </Link>
         </div>
         {children}
       </div>
