@@ -24,6 +24,7 @@
         "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
         "semi": ["error", "always"],
         "space-infix-ops": "error",
+        "react/react-in-jsx-scope": "off",
         "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/no-non-null-assertion": "off"
