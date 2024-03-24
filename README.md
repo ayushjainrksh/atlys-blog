@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Atlys blog
+Demo: https://atlys-blog.vercel.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup
+1. Clone the repo
+2. Run `nvm use` to use the correct node version
+3. Run `npm install` to install the dependencies
+4. Run `npm start` to start the server
+5. Open `http://localhost:3000` in your browser
 
-## Available Scripts
+## Usage
+1. `/` - Home page
+    
+    Shows login form if not logged in and redirects to blogs page if logged in
 
-In the project directory, you can run:
+2. `/login` - Login page
+    
+    Shows login form
 
-### `npm start`
+3. `/signup` - Signup page
+    
+    Shows signup form
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. `/blogs` - Blogs page
+    
+    Shows all the blogs, when trying to create a post, it redirects to login page if not logged in (displays a login modal over blogs page). When logged in, create post button posts the blog for the user. A user can select categories and add content for the blog.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Structure
+1. `src` - Contains all the source code
+    1. `container` - Contains stateful components
+        1. `Blog` - Fetch and render blogs
+        2. `Home` - Shows login page and redirects to blogs page if logged in
+        3. `Login` - Contains the login component
+        4. `Signup` - Contains the signup component
+    2. `views` - Contains all presentational components
+        1. `Post` - Contains the post card component
+        2. `CreatePost` - Contains the create post card
+    3. `library` - Contains all the design library components
+        1. `Button` - Contains the button component
+        2. `Input` - Contains the input component
+        3. `Modal` - Contains the modal HOC
+    4. `services` - Contains all the services
+        1. `auth` - Handles user auth related business logic
+    3. `App.js` - Contains the main app component
+    4. `index.js` - Contains the main index file
+    5. `routes.js` - Contains all the routes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Libraries used
+1. `react` - For building the UI
+2. `react-router-dom` - For routing
+3. `sass` - For styling
+4. `moment` - For date formatting
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

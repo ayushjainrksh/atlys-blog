@@ -23,7 +23,7 @@
             border-radius: var(--border-radius-l);
             padding: var(--spacing-xxs);
             background: linear-gradient(141.38deg, #969696 0.56%, #343434 99.58%);
-            -webkit-mask:
+            mask:
                 linear-gradient(#fff 0 0) content-box, 
                 linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
