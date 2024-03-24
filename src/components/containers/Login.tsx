@@ -3,6 +3,8 @@ import Input from '../library/Input';
 import './styles/login.scss';
 import Button from '../library/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { login } from '../../services/auth';
+import { ROUTES } from '../../constants/routes';
 
 const Login = (): JSX.Element => {
   const navigate = useNavigate();
@@ -28,10 +30,18 @@ const Login = (): JSX.Element => {
       return;
     }
 
-    navigate('/blog');
-  };
+    const user = {
+      email: formInput.email,
+      avatar: 'https://randomuser.me/api/portraits/women/43.jpg',
+      username: 'Jane Doe',
+      id: 3,
+      token: 'randomtoken'
+    };
 
-  console.log('location', location);
+    if (login(user)) {
+      navigate(String(location.state?.previousLocation ?? ROUTES.BLOG));
+    }
+  };
 
   return (
     <div className='login'>
@@ -64,7 +74,7 @@ const Login = (): JSX.Element => {
         <div className='login__footer'>
           Not registered yet?
           <Link className='login__footer__action'
-            to='/signup'
+            to={ROUTES.SIGNUP}
             state={{ previousLocation: location.state?.previousLocation }}
           >
             Register →

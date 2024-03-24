@@ -1,6 +1,6 @@
 .modal {
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -13,9 +13,23 @@
     &__content {
         border-radius: var(--border-radius-l);
         padding: var(--spacing-l);
-        border: 2px solid #969696;
         background-color: var(--background-color-secondary);
         position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--border-radius-l);
+            padding: var(--spacing-xxs);
+            background: linear-gradient(141.38deg, #969696 0.56%, #343434 99.58%);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
     
         &__close {
             width: fit-content;

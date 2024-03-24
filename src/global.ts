@@ -1,3 +1,11 @@
+export interface TUser {
+  id: number
+  email: string
+  username: string
+  token?: string
+  avatar?: string
+}
+
 export interface TPost {
   id: number
   content: string

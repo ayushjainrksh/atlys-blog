@@ -3,6 +3,8 @@ import Input from '../library/Input';
 import './styles/signup.scss';
 import Button from '../library/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
+import { login } from '../../services/auth';
 
 const Signup = (): JSX.Element => {
   const location = useLocation();
@@ -29,7 +31,17 @@ const Signup = (): JSX.Element => {
       return;
     }
 
-    navigate('/blog');
+    const user = {
+      email: formInput.email,
+      avatar: 'https://randomuser.me/api/portraits/women/43.jpg',
+      username: formInput.username,
+      id: 3,
+      token: 'randomtoken'
+    };
+
+    if (login(user)) {
+      navigate(String(location.state?.previousLocation ?? ROUTES.BLOG));
+    }
   };
 
   return (
@@ -48,14 +60,14 @@ const Signup = (): JSX.Element => {
           name='username'
           type='text'
           label='Username'
-          placeholder='Enter your username'
+          placeholder='CHoose a preferred username'
           onChange={onChange}
           value={formInput?.username}/>
         <Input
           name='password'
           type='password'
           label='Password'
-          placeholder='Enter your password'
+          placeholder='Choose a strong password'
           onChange={onChange}
           value={formInput?.password}/>
         <div className='signup__action'>
@@ -70,7 +82,7 @@ const Signup = (): JSX.Element => {
         <div className='signup__footer'>
           Already have an account?
           <Link className='signup__footer__action'
-            to='/login'
+            to={ROUTES.LOGIN}
             state={{ previousLocation: location.state?.previousLocation }}
           >
             Login →

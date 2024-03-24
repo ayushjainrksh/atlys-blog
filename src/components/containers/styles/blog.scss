@@ -28,5 +28,10 @@
             margin-bottom: 40px;
         }
     }
-
+    &__logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
 }

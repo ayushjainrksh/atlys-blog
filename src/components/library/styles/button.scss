@@ -8,6 +8,10 @@
         background-color: var(--primary-color);
         color: var(--text-color-1);
         border-radius: var(--border-radius-m);
+
+        &:hover {
+            background-color: var(--secondary-color);
+        }
     }
 
     &--small {
